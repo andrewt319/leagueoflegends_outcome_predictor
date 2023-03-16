@@ -1,4 +1,4 @@
-# League of Legends Outcome Predictor After 10 Minutes
+# League of Legends Outcome Predictor After 10 Minutes of Gameplay
 
 ## Framing the Problem:
 The League of Legends dataset loaded above give insight on professional games from the 2022 season. It specifies information and statistics for each player for each specific game, including bans, kills, deaths, damage taken per minute, wards placed, etc. As a beginner to the game, I wonder if there are aspects of the game that could be predicted. The specific question that I will be focusing on predicting will be -- which team will win or lose a game after the first 10 minutes have played out? 
