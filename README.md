@@ -35,6 +35,6 @@ To test the fairness  of my final model, I decided to split my dataset into two 
 
 I will run 500 iterations, where for each iteration, I will shuffle the "gamelength" columm randomly. I will then calculate the test statistic of the difference of precision from the games with average game length and >= average game length. 
 
-The p-value for one iteration of this permutation test was 0.006 which is less than the significance level of 0.06. As a result, we reject the null, and that the precision for games with length greater than average is lower than the games with length lower than average. In competitive matches at least, my model calculates the outcome better for short games. This logically makes sense though, as if a game is shorter, then a higher proportion of the game has already played out at the 10 minute mark.
+The p-value for one iteration of this permutation test was 0.006 which is less than the significance level of 0.05. As a result, we reject the null, and that the precision for games with length greater than average is lower than the games with length lower than average. In competitive matches at least, my model calculates the outcome better for short games. This logically makes sense though, as if a game is shorter, then a higher proportion of the game has already played out at the 10 minute mark.
 
 
