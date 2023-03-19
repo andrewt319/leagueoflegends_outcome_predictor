@@ -29,8 +29,9 @@ For my final model, I transformed a few more quantitative columns (in addition t
 
 I used GridCV to calculate optimal hyperparameters to improve the scoring accuracy of my model. Out of all possible combinations of max_depth, min_samples_split, and criterion, it found that the optimal choices were: max_depth = 3, min_samples_split = 2, and criterion = gini. I inputted these parameters when instantiating my DecisionTreeClassifier, and then put it in the pipeline. The accuracy value for my final model on the testing set after including more features and finetuning the hyperparameters was 0.67. This is about 0.10 of an increase in accuracy from my baseline model!
 
-<iframe src="assets/confusion_matrix.png" width=600 height=600 frameBorder=0></iframe>
 Here's a confusion matrix that helps to represent my final model's performance.
+<iframe src="assets/confusion_matrix.png" width=600 height=600 frameBorder=0></iframe>
+
 
 ## Fairness Analysis:
 To test the fairness  of my final model, I decided to split my dataset into two groups -- one where the game's gamelength is greater than or equal to the average and one where the game's gamelength is less than the average. I will perform a permutation test to decide whether or not the precision calculated is fair for both groups. I will use a significance level cutoff of 0.05. 
