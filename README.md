@@ -27,7 +27,7 @@ For my baseline model, I transformed quantitative columns killsat10, assistsat10
 ## Final Model:
 For my final model, I transformed a few more quantitative columns (in addition to the ones in my baseline model) including goldat10, xpat10, csat10, golddiffat10, etc. Additionally, I encoded nominal columns champion1, champion2, ..., champion5 using sklearn's OneHotEncoder. I still used the same classifier in the DecisionTreeClassifier. However, for this step, I used GridCV to calculate optimal hyperparameters to improve the scoring accuracy of my model. Out of all possible combinations of max_depth, min_samples_split, and criterion, it found that the optimal choices were: max_depth = 5, min_samples_split = 100, and criterion = entropy. I inputted these parameters when instantiating my DecisionTreeClassifier, and then put it in the pipeline. The accuracy value for my final model on the testing set after including more features and finetuning the hyperparameters was 0.67. This is about 0.10 of an increase in accuracy from my baseline model!
 
-<iframe src="assets/confusion_matrix.png" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/confusion_matrix.png" width=400 height=300 frameBorder=0></iframe>
 Here's a confusion matrix that helps to represent my final model's performance.
 
 ## Fairness Analysis:
