@@ -27,6 +27,9 @@ For my baseline model, I transformed quantitative columns killsat10, assistsat10
 ## Final Model:
 For my final model, I transformed a few more quantitative columns (in addition to the ones in my baseline model) including goldat10, xpat10, csat10, golddiffat10, etc. Additionally, I encoded nominal columns champion1, champion2, ..., champion5 using sklearn's OneHotEncoder. I still used the same classifier in the DecisionTreeClassifier. However, for this step, I used GridCV to calculate optimal hyperparameters to improve the scoring accuracy of my model. Out of all possible combinations of max_depth, min_samples_split, and criterion, it found that the optimal choices were: max_depth = 5, min_samples_split = 100, and criterion = entropy. I inputted these parameters when instantiating my DecisionTreeClassifier, and then put it in the pipeline. The accuracy value for my final model on the testing set after including more features and finetuning the hyperparameters was 0.67. This is about 0.10 of an increase in accuracy from my baseline model!
 
+<iframe src="assets/confusion_matrix.png" width=800 height=600 frameBorder=0></iframe>
+Here's a confusion matrix that helps to represent my final model's performance.
+
 ## Fairness Analysis:
 To test the fairness  of my final model, I decided to split my dataset into two groups -- one where the game's gamelength is greater than or equal to the average and one where the game's gamelength is less than the average. I will perform a permutation test to decide whether or not the precision calculated is fair for both groups. I will use a significance level cutoff of 0.05. 
 
@@ -38,3 +41,5 @@ I will run 500 iterations, where for each iteration, I will shuffle the "gamelen
 The p-value for one iteration of this permutation test was 0.006 which is less than the significance level of 0.05. As a result, we reject the null, and that the precision for games with length greater than average is lower than the games with length lower than average. In competitive matches at least, my model calculates the outcome better for short games. This logically makes sense though, as if a game is shorter, then a higher proportion of the game has already played out at the 10 minute mark.
 
 
+## Conclusion:
+The model I built is able to predict whether or not a specific team will win or not after 10 minutes of gameplay with an accuracy of 67%. Although this isn't that high, keep in mind that this model uses professional matches as training data. The professional league players will do a good job at not letting a bad start determine the outcome of a game -- moreso than just casual gamers. Although this is purely speculative, I would think that if I were to perform this exact same modeling and training on a dataset amongst casual games, that this accuracy would be higher. However, amongst its current state in professional games after 10 minutes of gameplay, the model that I created will be able to accuractely predict the outcome of a game around 2/3 of the time. 
